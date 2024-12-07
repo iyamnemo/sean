@@ -1,0 +1,304 @@
+:root {
+    /* Color Palette */
+    --primary-dark: #2D3B48; /* Dark slate blue */
+    --primary: #4C6A92; /* Soft, calming blue */
+    --primary-light: #A8C6E3; /* Light blue */
+    
+    --secondary-dark: #343A40; /* Dark gray */
+    --secondary: #6C757D; /* Cool gray */
+    --secondary-light: #D6D8DB; /* Light gray */
+
+    --background-light: #F8F9FA; /* Soft light gray */
+    --background-dark: #E9ECEF; /* Soft gray for cards */
+    
+    --highlight: #FFD700; /* Professional gold */
+    --success: #28A745; /* Fresh green */
+    --error: #DC3545; /* Bold red */
+    
+    --text-primary: #212529; /* Dark text for readability */
+    --text-secondary: #495057; /* Light gray text */
+    --text-muted: #868E96; /* Subtle gray for less important text */
+}
+
+/* Container for Product and Form Sections */
+.products, .forms {
+    margin: 16px;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+.products {
+    flex: 3;
+    background-color: var(--background-light);
+    overflow-y: auto;
+}
+
+.forms {
+    flex: 2;
+    background-color: var(--background-dark);
+}
+
+/* Cart Item Layout */
+.cart-item {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--secondary-light);
+    background-color: var(--background-light);
+}
+
+.cart-item .left, .cart-item .middle, .cart-item .right {
+    display: flex;
+    align-items: center;
+}
+
+/* Cart item left section */
+.cart-item .left {
+    flex: 2;
+    padding-left: 16px;
+}
+
+/* Cart item middle section */
+.cart-item .middle {
+    flex: 1;
+}
+
+/* Cart item right section */
+.cart-item .right {
+    flex: 1;
+    text-align: right;
+    color: var(--primary-dark);
+}
+
+/* Cart buttons (Add/Remove) */
+.cart-item-buttons {
+    border: 1px solid var(--primary-dark);
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--secondary);
+    border-radius: 4px;
+}
+
+.cart-item-buttons button {
+    background-color: var(--background-light);
+    border: none;
+    cursor: pointer;
+    color: var(--primary-dark);
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cart-item-buttons button:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
+.cart-item-buttons > * {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* Card Design */
+.card {
+    background-color: var(--background-light);
+    border: 1px solid var(--primary-dark);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.card-header {
+    font-size: 1.25em;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.card-footer {
+    text-align: right;
+    color: var(--primary-dark);
+}
+
+.card-content {
+    color: var(--primary-dark);
+    padding: 8px 0;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+    background-color: var(--secondary-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Controls (Inputs & Selects) */
+.form-control input,
+.form-control select {
+    background-color: var(--background-dark);
+    margin-top: 4px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-dark);
+    width: 100%;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+    outline: none;
+    border-color: var(--primary-light);
+}
+
+/* Responsiveness - Make products and forms flexible on smaller screens */
+@media (max-width: 768px) {
+    .products, .forms {
+        flex: 1;
+        margin: 8px 0;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item .left,
+    .cart-item .middle,
+    .cart-item .right {
+        width: 100%;
+        text-align: left;
+    }
+
+    .cart-item-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .card {
+        margin-bottom: 16px;
+    }
+}
+
+/* Additional Improvements for General Layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.container > * {
+    flex: 1;
+    min-width: 300px;
+    margin: 16px;
+}
+
+/* To ensure smooth transitions and hover effects */
+button, .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover, .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Accessibility - Focus states for better navigation */
+button:focus, .form-control input:focus, .form-control select:focus {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+}
+
+button:hover, .card:hover, .cart-item-buttons button:hover {
+    background-color: var(--primary-light);
+    color: white;
+    outline: 2px solid var(--primary-dark);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal[style*="display: block"] {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt-details {
+    margin-bottom: 10px;
+}
+
+.receipt {
+    border: 1px solid var(--primary-dark);
+    padding: 15px;
+    margin-top: 15px;
+    width: 300px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal[style*="display: block"] {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button.btn {
+    padding: 10px 20px;
+    background-color: var(--success);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: var(--primary-light);
+}
